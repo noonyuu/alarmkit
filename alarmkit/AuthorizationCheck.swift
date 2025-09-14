@@ -1,13 +1,13 @@
 import AlarmKit
 
-func CheckAuthorization() async -> Bool {
+func authorizationCheck() async -> Bool {
     switch AlarmManager.shared.authorizationState {
     case .notDetermined:
         do {
             let state = try await AlarmManager.shared.requestAuthorization()
             return state == .authorized
         } catch {
-            print("Erro occurred while requesting authorization: \(error)")
+            print("Error occurred while requesting authorization: \(error)")
             return false
         }
     case .denied:
