@@ -1,6 +1,6 @@
 import AlarmKit
 
-func authorizationCheck() async -> Bool {
+func requestAuthorization() async -> Bool {
     switch AlarmManager.shared.authorizationState {
     case .notDetermined:
         do {
@@ -13,7 +13,7 @@ func authorizationCheck() async -> Bool {
     case .denied:
     return false
     case .authorized:
-        return false
+        return true
     @unknown default:
         return false
     }
