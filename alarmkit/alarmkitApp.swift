@@ -18,7 +18,7 @@ struct alarmkitApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AlarmView()
         }
         .modelContainer(sharedModelContainer)
     }
