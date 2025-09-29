@@ -25,7 +25,7 @@ struct AlarmCell: View {
                 .font(.headline)
         }
     }
-    
+
     var tag: some View {
         Text(tagLabel)
             .textCase(.uppercase)
@@ -34,7 +34,7 @@ struct AlarmCell: View {
             .background(tagColor)
             .clipShape(RoundedRectangle(cornerRadius: 4))
     }
-    
+
     var tagLabel: String {
         switch alarm.state {
         case .scheduled: "Scheduled"
@@ -44,7 +44,7 @@ struct AlarmCell: View {
         @unknown default: "!"
         }
     }
-    
+
     var tagColor: Color {
         switch alarm.state {
         case .scheduled: .blue

@@ -1,33 +1,45 @@
 import AlarmKit
 import SwiftUI
+import ActivityKit
 
 @Observable class AlarmViewModel {
     typealias AlarmConfiguration = AlarmManager.AlarmConfiguration<CookingData>
     // UUIDをキー、(Alarm, LocalizedStringResource)のタプルを値とする辞書
     typealias AlarmsMap = [UUID: (Alarm, LocalizedStringResource)]
-    
+
     // アプリ内で管理している前アラームを格納する辞書
     @MainActor var alarmsMap = AlarmsMap()
     // シングルトンのAlarmManagerインスタンス
     // alarmManager自体はシングルトンのため監視する必要がないから、監視対象から除外
     @ObservationIgnored private let alarmManager = AlarmManager.shared
-    
+
     @MainActor var hasUpcomingAlerts: Bool {
         !alarmsMap.isEmpty
     }
-    
+
     func scheduleAlertOnly() {
-        let alertContent = AlarmPresentation.Alert(title: "Wake Up", stopButton: .stopButton)
-        
+
+        let alertContent = AlarmPresentation.Alert(
+            title: "Wake Up",
+            stopButton: .stopButton
+        )
+
         let attributes = AlarmAttributes<CookingData>(
             presentation: AlarmPresentation(alert: alertContent),
-            tintColor: Color.accentColor)
-        
-        let alarmConfiguration = AlarmConfiguration.timer(duration: 60, attributes: attributes)
-        
+            tintColor: Color.accentColor
+        )
+
+        let sound = AlertConfiguration.AlertSound.named("sample.caf")
+
+        let alarmConfiguration = AlarmConfiguration.timer(
+            duration: 60,
+            attributes: attributes,
+            sound: sound
+        )
+
         scheduleAlarm(id: UUID(), label: "Wake Up", alarmConfiguration: alarmConfiguration)
     }
-    
+
     private func scheduleAlarm(
         id: UUID, label: LocalizedStringResource, alarmConfiguration: AlarmConfiguration
     ) {
@@ -37,7 +49,8 @@ import SwiftUI
                     print("Not authorized to schedule alarms.")
                     return
                 }
-                let alarm = try await alarmManager.schedule(id: id, configuration: alarmConfiguration)
+                let alarm = try await alarmManager.schedule(
+                    id: id, configuration: alarmConfiguration)
                 await MainActor.run {
                     alarmsMap[id] = (alarm, label)
                 }
@@ -46,7 +59,7 @@ import SwiftUI
             }
         }
     }
-    
+
     func unscheduleAlarm(with alarmID: UUID) {
         try? alarmManager.cancel(id: alarmID)
         Task { @MainActor in
@@ -59,19 +72,19 @@ extension AlarmButton {
     static var openAppButton: Self {
         AlarmButton(text: "Open", textColor: .black, systemImageName: "swift")
     }
-    
+
     static var pauseButton: Self {
         AlarmButton(text: "Pause", textColor: .black, systemImageName: "pause.fill")
     }
-    
+
     static var resumeButton: Self {
         AlarmButton(text: "Start", textColor: .black, systemImageName: "play.fill")
     }
-    
+
     static var repeatButton: Self {
         AlarmButton(text: "Repeat", textColor: .black, systemImageName: "repeat.circle")
     }
-    
+
     static var stopButton: Self {
         AlarmButton(text: "Done", textColor: .white, systemImageName: "stop.circle")
     }
