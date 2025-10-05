@@ -63,5 +63,9 @@ fastlane/test_output
 
 Pods/
 
+CLAUDE.md
+.DS_Store
+Resources/
+
 # sweetpad用
 buildServer.json
