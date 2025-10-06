@@ -1,6 +1,6 @@
+import ActivityKit
 import AlarmKit
 import SwiftUI
-import ActivityKit
 
 @Observable class AlarmViewModel {
     typealias AlarmConfiguration = AlarmManager.AlarmConfiguration<CookingData>
@@ -38,6 +38,30 @@ import ActivityKit
         )
 
         scheduleAlarm(id: UUID(), label: "Wake Up", alarmConfiguration: alarmConfiguration)
+    }
+
+    func scheduleCustomButtonAlert() {
+        let alertContent = AlarmPresentation.Alert(
+            title: "Wake Up",  // アラートのタイトル
+            stopButton: .stopButton,  // 停止ボタン
+            secondaryButton: .openAppButton,  // セカンダリボタン
+            secondaryButtonBehavior: .custom)  // ボタンの動作をカスタム実装
+        // .default → ボタンを押すと自動的にアラートが閉じる
+        // .custom → ボタンを押した時の動作を自分で実装する (secondaryIntentで指定)
+
+        // <CookingData> はLive Activityの属性データの型
+        let attributes = AlarmAttributes<CookingData>(
+            presentation: AlarmPresentation(alert: alertContent),  // アラート設定
+            tintColor: Color.accentColor)  // アラートのテーマカラー
+
+        let id = UUID()  // アラームの一意な識別子
+        let alarmConfiguration = AlarmConfiguration(
+            schedule: .oneMinsFromNow,  // いつ鳴らすか
+            attributes: attributes,  // 表示設定
+            stopIntent: StopIntent(alarmID: id.uuidString),  // 停止ボタンの処理
+            secondaryIntent: OpenAlarmAppIntent(alarmID: id.uuidString))  // セカンダリボタンの処理
+
+        scheduleAlarm(id: id, label: "Wake Up", alarmConfiguration: alarmConfiguration)
     }
 
     private func scheduleAlarm(
