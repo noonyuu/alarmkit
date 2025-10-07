@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7238E6942E943F2400C7D704 /* alarmkitActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7238E67E2E943F2300C7D704 /* alarmkitActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
+		7238E6922E943F2400C7D704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7246311B2E75C649001C1B4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7238E67D2E943F2300C7D704;
+			remoteInfo = alarmkitActivityExtension;
+		};
 		724631332E75C64A001C1B4A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7246311B2E75C649001C1B4A /* Project object */;
@@ -23,13 +34,46 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7238E6992E943F2400C7D704 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7238E6942E943F2400C7D704 /* alarmkitActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7238E67E2E943F2300C7D704 /* alarmkitActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = alarmkitActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7238E6802E943F2300C7D704 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7238E6822E943F2300C7D704 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		724631232E75C649001C1B4A /* alarmkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alarmkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724631322E75C64A001C1B4A /* alarmkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alarmkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7246313C2E75C64A001C1B4A /* alarmkitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alarmkitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7238E69D2E94419900C7D704 /* Exceptions for "alarmkit" folder in "alarmkitActivityExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Intents/AppIntents.swift,
+				Models/AlarmMetadata.swift,
+			);
+			target = 7238E67D2E943F2300C7D704 /* alarmkitActivityExtension */;
+		};
+		7238E6A82E94448100C7D704 /* Exceptions for "alarmkitActivity" folder in "alarmkitActivityExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				alarmkitActivityBundle.swift,
+				AlarmLiveActivity.swift,
+			);
+			target = 7238E67D2E943F2300C7D704 /* alarmkitActivityExtension */;
+		};
 		724631502E75C9FF001C1B4A /* Exceptions for "alarmkit" folder in "alarmkit" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -40,10 +84,19 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		7238E6A62E94447000C7D704 /* alarmkitActivity */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7238E6A82E94448100C7D704 /* Exceptions for "alarmkitActivity" folder in "alarmkitActivityExtension" target */,
+			);
+			path = alarmkitActivity;
+			sourceTree = "<group>";
+		};
 		724631252E75C649001C1B4A /* alarmkit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				724631502E75C9FF001C1B4A /* Exceptions for "alarmkit" folder in "alarmkit" target */,
+				7238E69D2E94419900C7D704 /* Exceptions for "alarmkit" folder in "alarmkitActivityExtension" target */,
 			);
 			path = alarmkit;
 			sourceTree = "<group>";
@@ -61,6 +114,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7238E67B2E943F2300C7D704 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		724631202E75C649001C1B4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,12 +145,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7238E67F2E943F2300C7D704 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7238E6802E943F2300C7D704 /* WidgetKit.framework */,
+				7238E6822E943F2300C7D704 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7246311A2E75C649001C1B4A = {
 			isa = PBXGroup;
 			children = (
 				724631252E75C649001C1B4A /* alarmkit */,
 				724631352E75C64A001C1B4A /* alarmkitTests */,
 				7246313F2E75C64A001C1B4A /* alarmkitUITests */,
+				7238E6A62E94447000C7D704 /* alarmkitActivity */,
+				7238E67F2E943F2300C7D704 /* Frameworks */,
 				724631242E75C649001C1B4A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +172,7 @@
 				724631232E75C649001C1B4A /* alarmkit.app */,
 				724631322E75C64A001C1B4A /* alarmkitTests.xctest */,
 				7246313C2E75C64A001C1B4A /* alarmkitUITests.xctest */,
+				7238E67E2E943F2300C7D704 /* alarmkitActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +180,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7238E67D2E943F2300C7D704 /* alarmkitActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7238E6952E943F2400C7D704 /* Build configuration list for PBXNativeTarget "alarmkitActivityExtension" */;
+			buildPhases = (
+				7238E67A2E943F2300C7D704 /* Sources */,
+				7238E67B2E943F2300C7D704 /* Frameworks */,
+				7238E67C2E943F2300C7D704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = alarmkitActivityExtension;
+			packageProductDependencies = (
+			);
+			productName = alarmkitActivityExtension;
+			productReference = 7238E67E2E943F2300C7D704 /* alarmkitActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		724631222E75C649001C1B4A /* alarmkit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 724631462E75C64A001C1B4A /* Build configuration list for PBXNativeTarget "alarmkit" */;
@@ -115,10 +206,12 @@
 				7246311F2E75C649001C1B4A /* Sources */,
 				724631202E75C649001C1B4A /* Frameworks */,
 				724631212E75C649001C1B4A /* Resources */,
+				7238E6992E943F2400C7D704 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7238E6932E943F2400C7D704 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				724631252E75C649001C1B4A /* alarmkit */,
@@ -186,6 +279,9 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
+					7238E67D2E943F2300C7D704 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					724631222E75C649001C1B4A = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -216,11 +312,19 @@
 				724631222E75C649001C1B4A /* alarmkit */,
 				724631312E75C64A001C1B4A /* alarmkitTests */,
 				7246313B2E75C64A001C1B4A /* alarmkitUITests */,
+				7238E67D2E943F2300C7D704 /* alarmkitActivityExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7238E67C2E943F2300C7D704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		724631212E75C649001C1B4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +349,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7238E67A2E943F2300C7D704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7246311F2E75C649001C1B4A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +380,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7238E6932E943F2400C7D704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7238E67D2E943F2300C7D704 /* alarmkitActivityExtension */;
+			targetProxy = 7238E6922E943F2400C7D704 /* PBXContainerItemProxy */;
+		};
 		724631342E75C64A001C1B4A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 724631222E75C649001C1B4A /* alarmkit */;
@@ -282,6 +398,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		7238E6962E943F2400C7D704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDCTHQR6AD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = alarmkitActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = alarmkitActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alarmkit.alarmkitActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7238E6972E943F2400C7D704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SDCTHQR6AD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = alarmkitActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = alarmkitActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alarmkit.alarmkitActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		724631442E75C64A001C1B4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -424,7 +600,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.alarmkit.alarmkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alarmkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -457,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.alarmkit.alarmkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alarmkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -556,6 +732,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7238E6952E943F2400C7D704 /* Build configuration list for PBXNativeTarget "alarmkitActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7238E6962E943F2400C7D704 /* Debug */,
+				7238E6972E943F2400C7D704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7246311E2E75C649001C1B4A /* Build configuration list for PBXProject "alarmkit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
