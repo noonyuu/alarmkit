@@ -69,3 +69,6 @@ Resources/
 
 # sweetpad用
 buildServer.json
+
+# 公開API確認用
+AlarmKit.swiftinterface
